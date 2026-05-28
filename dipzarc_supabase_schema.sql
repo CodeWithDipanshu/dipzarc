@@ -446,7 +446,7 @@ insert into public.tasks (title, description, duration_minutes, aura_reward, dai
 -- select cron.schedule('weekly-reset', '0 0 * * 1', 'select public.weekly_reset()');
 
 -- Abandon stale sessions every 5 minutes:
--- select cron.schedule('abandon-stale-sessions', '0 */12 * * *', 'select public.abandon_stale_sessions()');
+-- select cron.schedule('abandon-stale-sessions', '0 0 * * *', 'select public.abandon_stale_sessions()');
 
 -- ─────────────────────────────────────────────
 -- DONE. Schema ready for DipzArc.
