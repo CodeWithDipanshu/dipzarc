@@ -53,7 +53,7 @@ Then in SQL Editor run:
 select cron.schedule('dipzarc-weekly-reset', '0 0 * * 1', 'select public.weekly_reset()');
 
 -- Abandon stale sessions every 5 minutes
-select cron.schedule('dipzarc-stale-sessions', '*/5 * * * *', 'select public.abandon_stale_sessions()');
+select cron.schedule('dipzarc-stale-sessions', '0 */12 * * *', 'select public.abandon_stale_sessions()');
 ```
 
 ---
