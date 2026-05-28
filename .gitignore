@@ -1,0 +1,28 @@
+# deps
+/node_modules
+/.pnp
+.pnp.js
+
+# next
+/.next/
+/out/
+
+# env — NEVER commit secrets
+.env
+.env.local
+.env.*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# OS
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/
+.idea/
