@@ -14,7 +14,7 @@ import { useProfile }  from '@/hooks/useProfile'
 import { adminService } from '@/services/adminService'
 import { useRouter }    from 'next/navigation'
 import { formatAura, cn, plural } from '@/utils/helpers'
-import type { Profile, UserStatus } from '@/types'
+import type { Profile, UserStatus, RankTier } from '@/types'
 
 type FilterStatus = 'all' | UserStatus
 

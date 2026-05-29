@@ -124,7 +124,7 @@ export default function DashboardPage() {
           />
           <StatCard
             label="Rank"
-            value={<RankBadge tier={profile.rank_tier} size="sm" />}
+            value={<RankBadge tier={profile.rank_tier as RankTier} size="sm" />}
             sub={nextAura ? `${formatAura(nextAura)} to next tier` : 'Max rank!'}
             icon={Trophy}
           />

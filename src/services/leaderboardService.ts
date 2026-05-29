@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/client'
-import type { LeaderboardRow } from '@/types'
+import type { LeaderboardRow, RankTier } from '@/types'
 
 const supabase = createClient()
 
@@ -19,7 +19,7 @@ export const leaderboardService = {
       username:     p.username,
       weekly_aura:  p.weekly_aura,
       daily_streak: p.daily_streak,
-      rank_tier:    p.rank_tier,
+      rank_tier:    p.rank_tier as RankTier,
       avatar_url:   p.avatar_url,
     }))
   },
@@ -39,7 +39,7 @@ export const leaderboardService = {
       username:     p.username,
       weekly_aura:  p.total_aura,
       daily_streak: p.daily_streak,
-      rank_tier:    p.rank_tier,
+      rank_tier:    p.rank_tier as RankTier,
       avatar_url:   p.avatar_url,
     }))
   },
@@ -65,7 +65,7 @@ export const leaderboardService = {
       username:     row.user?.username ?? '—',
       weekly_aura:  row.aura,
       daily_streak: row.user?.daily_streak ?? 0,
-      rank_tier:    row.user?.rank_tier ?? 'initiate',
+      rank_tier:    (row.user?.rank_tier ?? 'initiate') as RankTier,
       avatar_url:   row.user?.avatar_url ?? null,
     }))
   },

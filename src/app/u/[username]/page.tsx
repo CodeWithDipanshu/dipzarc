@@ -82,7 +82,7 @@ export default async function PublicProfilePage({ params }: Props) {
               <h1 className="font-hud font-bold text-2xl text-slate-100 tracking-wider mb-1">
                 {profile.username}
               </h1>
-              <RankBadge tier={profile.rank_tier} size="md" />
+              <RankBadge tier={profile.rank_tier as RankTier} size="md" />
               <p className="font-hud text-xs text-slate-600 mt-2">
                 Member since {new Date(profile.created_at).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
               </p>
