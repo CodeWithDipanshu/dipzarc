@@ -12,7 +12,7 @@ import { useAppStore }  from '@/store/useAppStore'
 import { adminService } from '@/services/adminService'
 import { cn, formatAura } from '@/utils/helpers'
 import { RANK_CONFIG }  from '@/utils/ranks'
-import type { Profile } from '@/types'
+import type { Profile, RankTier } from '@/types'
 
 const NAV_ITEMS = [
   { href: '/dashboard',   label: 'Dashboard',   icon: LayoutDashboard },
@@ -77,7 +77,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
     router.push('/auth/login')
   }
 
-  const rankConfig = profile ? RANK_CONFIG[profile.rank_tier] : null
+  const rankConfig = profile ? RANK_CONFIG[profile.rank_tier as RankTier] : null
 
   const NavContent = () => (
     <>

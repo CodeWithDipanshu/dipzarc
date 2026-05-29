@@ -16,7 +16,7 @@ import { leaderboardService } from '@/services/leaderboardService'
 import { sessionService }     from '@/services/sessionService'
 import { RANK_CONFIG, auraToNextTier, tierProgress } from '@/utils/ranks'
 import { formatAura, cn } from '@/utils/helpers'
-import type { TaskWithCount, LeaderboardRow } from '@/types'
+import type { TaskWithCount, LeaderboardRow, RankTier } from '@/types'
 
 export default function DashboardPage() {
   const router  = useRouter()
@@ -78,9 +78,9 @@ export default function DashboardPage() {
 
   if (!profile || loading) return <PageLoading />
 
-  const rankCfg      = RANK_CONFIG[profile.rank_tier]
-  const nextAura     = auraToNextTier(profile.rank_tier, profile.total_aura)
-  const progress     = tierProgress(profile.rank_tier, profile.total_aura)
+  const rankCfg      = RANK_CONFIG[profile.rank_tier as RankTier]
+  const nextAura     = auraToNextTier(profile.rank_tier as RankTier, profile.total_aura)
+  const progress     = tierProgress(profile.rank_tier as RankTier, profile.total_aura)
 
   return (
     <div className="min-h-full">

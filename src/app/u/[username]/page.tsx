@@ -3,6 +3,7 @@ import { createClient } from '@/lib/supabase/server'
 import { RankBadge }    from '@/components/ui/RankBadge'
 import { RANK_CONFIG, auraToNextTier, tierProgress } from '@/utils/ranks'
 import { formatAura }   from '@/utils/helpers'
+import type { RankTier } from '@/types'
 import Link             from 'next/link'
 
 interface Props {
@@ -34,9 +35,9 @@ export default async function PublicProfilePage({ params }: Props) {
     .order('started_at', { ascending: false })
     .limit(10)
 
-  const rankCfg  = RANK_CONFIG[profile.rank_tier]
-  const progress = tierProgress(profile.rank_tier, profile.total_aura)
-  const nextAura = auraToNextTier(profile.rank_tier, profile.total_aura)
+  const rankCfg  = RANK_CONFIG[profile.rank_tier as RankTier]
+  const progress = tierProgress(profile.rank_tier as RankTier, profile.total_aura)
+  const nextAura = auraToNextTier(profile.rank_tier as RankTier, profile.total_aura)
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 relative">

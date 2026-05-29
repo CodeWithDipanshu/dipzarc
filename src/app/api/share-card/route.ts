@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { RANK_CONFIG }  from '@/utils/ranks'
 import { formatAura }   from '@/utils/helpers'
+import type { RankTier } from '@/types'
 
 export const runtime = 'edge'
 
@@ -37,8 +38,8 @@ export async function GET(req: NextRequest) {
     return new NextResponse('User not found', { status: 404 })
   }
 
-  const rankCfg  = RANK_CONFIG[profile.rank_tier]
-  const rankColor = RANK_HEX[profile.rank_tier] ?? '#a855f7'
+  const rankCfg  = RANK_CONFIG[profile.rank_tier as RankTier]
+  const rankColor = RANK_HEX[profile.rank_tier as RankTier] ?? '#a855f7'
   const initials  = profile.username.slice(0, 2).toUpperCase()
 
   // Build a standalone SVG share card (1200×630 — standard OG size)

@@ -105,7 +105,7 @@ export default function AdminUsersPage() {
   }
 
   const handleResetAura = async (userId: string) => {
-    if (!confirm('Reset this user weekly aura to 0?')) return
+    if (!confirm('Reset this users weekly aura to 0?')) return
     setAction(userId, true)
     await adminService.resetUserWeeklyAura(userId)
     setUsers(prev => prev.map(u => u.id === userId ? { ...u, weekly_aura: 0 } : u))
